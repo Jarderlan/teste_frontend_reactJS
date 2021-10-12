@@ -41,16 +41,29 @@ export const errorInterceptor = axiosApi.interceptors.response.use(
             localStorage.clear();
             window.location.reload();
         }
+        else if (error.response.data.message) {
+            toast.error(error.response.data.message, {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+        else{
+            toast.error(`Algo não saiu como o esperado.`, {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
 
-        toast.error('Error', {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
         return Promise.reject(error);
     }
 );
