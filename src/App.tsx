@@ -3,6 +3,7 @@ import SignIn from "./pages/SignIn";
 import axiosApi from "./services/axiosInstance.js";
 import { Navbar, NavbarBrand } from "reactstrap"
 import { IValidaToken } from "./types";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | undefined>(undefined)
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <Fragment>
+      <ToastContainer />
       <Navbar color="dark" dark style={{ justifyContent: 'space-evenly' }}>
         <NavbarBrand href="/" className="mr-auto">Teste - {titulo}</NavbarBrand>
       </Navbar>
