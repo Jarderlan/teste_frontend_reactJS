@@ -133,8 +133,6 @@ const SignUp = ({ isOpen, setIsOpen }: any) => {
                         onChange={onChangeEndereco}
                         value={formData.endereco.complemento}
                     />
-
-
                 </Row>
             </ModalBody>
             <ModalFooter>
