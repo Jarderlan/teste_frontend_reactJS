@@ -25,6 +25,7 @@ function App() {
     if (token !== undefined && isAuthenticated === undefined) {
       validaToken()
     }
+  // eslint-disable-next-line
   }, [token])
 
   useEffect(() => {

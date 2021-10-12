@@ -13,7 +13,7 @@ const SignIn = ({ setIsAuthenticated }: any) => {
     const [isOpen, setIsOpen] = useState(false)
 
     const onChange = (e: any) => {
-        const { type, name, value } = e.target
+        const { name, value } = e.target
         setFormData({
             ...formData,
             [name]: value

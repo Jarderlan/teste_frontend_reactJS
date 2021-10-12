@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, Row } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Row } from 'reactstrap';
 import InputForm from '../components/inputForm';
+import { ShowToasty } from '../components/Toast';
 import axiosApi, { viaCep } from '../services/axiosInstance';
-import { ILogin, IUsuario } from '../types';
+import { IUsuario } from '../types';
 
 const SignUp = ({ isOpen, setIsOpen }: any) => {
     const initialState = { nome: '', endereco: { cep: '', logradouro: '', bairro: '', localidade: '', uf: '', numero: '', complemento: '', ibge: '' }, email: '', password: '', telefone: '' }
     const [formData, setFormData] = useState<IUsuario>(initialState)
-    const [cep, setCep] = useState<number | undefined>()
+    const [cep, setCep] = useState<number | string>('')
 
     const onChange = (e: any) => {
         const { name, value } = e.target
@@ -40,7 +41,8 @@ const SignUp = ({ isOpen, setIsOpen }: any) => {
 
     const onSubmit = async () => {
         try {
-            const { data }: any = await axiosApi.post('/sing-up', { usuario: formData })
+            await axiosApi.post('/sing-up', { usuario: formData })
+            ShowToasty('success', 'Usuario Cadastrado com sucesso!')
             setFormData(initialState)
             setIsOpen(false)
         } catch (error) {

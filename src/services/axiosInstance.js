@@ -2,20 +2,8 @@ import Axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const notify = () => toast("Wow so easy !");
-
 const token = localStorage.getItem('token');
 
-// if (
-//     window.location.protocol !== 'https:' &&
-//     process.env.NODE_ENV === 'production' &&
-//     window.location.hostname !== 'localhost' &&
-//     window.location.hostname !== '127.0.0.1'
-// ) {
-//     window.location.replace(
-//         `https:${window.location.href.substring(window.location.protocol.length)}`
-//     );
-// }
 
 export const axiosApi = Axios.create({
     baseURL: process.env.BASE_URL ?? 'http://127.0.0.1:3001',
