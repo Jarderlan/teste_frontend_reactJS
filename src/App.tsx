@@ -25,7 +25,7 @@ function App() {
     if (token !== undefined && isAuthenticated === undefined) {
       validaToken()
     }
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [token])
 
   useEffect(() => {
@@ -42,7 +42,7 @@ function App() {
       </Navbar>
       {
         isAuthenticated ?
-          <div>LOGADO</div> :
+          <div>Parte Autenticada</div> :
           <SignIn setIsAuthenticated={setIsAuthenticated} />
       }
     </Fragment>
