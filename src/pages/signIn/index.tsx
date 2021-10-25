@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { Button, Col, Form, Row } from "reactstrap"
-import InputForm from "../components/inputForm"
-import axiosApi from "../services/axiosInstance"
-import { ILogin } from "../types"
-import SignUp from "./SignUp"
+import InputForm from "../../components/inputForm"
+import axiosApi from "../../services/axiosInstance"
+import { ILogin } from "../../types"
+import SignUp from "../../components/modalSignUp"
 
 const SignIn = ({ setIsAuthenticated }: any) => {
     const [formData, setFormData] = useState({
