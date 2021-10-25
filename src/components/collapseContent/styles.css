@@ -1,0 +1,11 @@
+.collapseBar{
+    background-color: dimgray;
+    color: whitesmoke;
+}
+
+.collapseBar .col{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
