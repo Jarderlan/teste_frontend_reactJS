@@ -1,14 +1,17 @@
 import { Fragment, useEffect, useState } from "react";
-import SignIn from "./pages/SignIn";
+import SignIn from "./pages/signIn";
 import axiosApi from "./services/axiosInstance.js";
 import { Navbar, NavbarBrand } from "reactstrap"
 import { IValidaToken } from "./types";
 import { ToastContainer } from "react-toastify";
+import Home from "./pages/home";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | undefined>(undefined)
-  const [titulo, setTitulo] = useState('Login')
+  const [titulo, setTitulo] = useState<string>('Login')
+
   const token = localStorage.getItem('token')
+
   const headerTitle = localStorage.getItem('header-tittle')
 
   const validaToken = async () => {
@@ -22,7 +25,7 @@ function App() {
     }
   }
   useEffect(() => {
-    if (token !== undefined && isAuthenticated === undefined) {
+    if (token !== null && isAuthenticated === undefined) {
       validaToken()
     }
     // eslint-disable-next-line
@@ -42,7 +45,7 @@ function App() {
       </Navbar>
       {
         isAuthenticated ?
-          <div>Parte Autenticada</div> :
+          <Home /> :
           <SignIn setIsAuthenticated={setIsAuthenticated} />
       }
     </Fragment>
