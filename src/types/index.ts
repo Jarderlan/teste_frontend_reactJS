@@ -1,3 +1,4 @@
+import { ReactChild } from "react";
 import { InputType } from "reactstrap/es/Input";
 
 export interface IValidaToken {
@@ -43,4 +44,11 @@ export interface IUsuario {
     telefone: string
     created_at?: string | Date
     updated_at?: string | Date
+}
+
+export interface ICollapseContent {
+    titulo: string
+    btnNovo?: boolean
+    onClickModal?: any,
+    children: ReactChild
 }
